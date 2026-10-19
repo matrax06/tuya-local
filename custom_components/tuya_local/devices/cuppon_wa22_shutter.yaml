@@ -1,0 +1,40 @@
+name: Cuppon WA22 Kepenk
+products:
+  - id: bf6998e967b0fce2b6rmrd
+    manufacturer: Cuppon
+    model: WA22 Smart Shutter
+entities:
+  - entity: cover
+    class: shutter
+    dps:
+      - id: 102
+        name: control
+        type: string
+        mapping:
+          - dps_val: Open
+            value: open
+          - dps_val: Close
+            value: close
+          - dps_val: Stop
+            value: stop
+      - id: 104
+        name: position
+        type: integer
+        range:
+          min: 0
+          max: 100
+        mapping:
+          - invert: false
+  - entity: binary_sensor
+    name: Photocell
+    class: safety          
+    category: diagnostic
+    dps:
+      - id: 103
+        type: boolean
+        name: sensor
+        mapping:
+          - dps_val: True
+            value: false   
+          - dps_val: False
+            value: true    
